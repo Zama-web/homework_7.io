@@ -6,18 +6,19 @@ export const getPost = createAsyncThunk(
     async function (data, { dispatch }) {
         const responce = await fetch('https://jsonplaceholder.typicode.com/posts')
         const posts = await responce.json()
-
-
-        console.log(posts);
+        dispatch(getPostAction(posts));
     }
 )
+
+
+// 7 дз) создать GET запрос по одному посту и отобразить
 
 export const getPostById = createAsyncThunk(
     'getPostById',
     async function (data, { dispatch }) {
-        const responce = fetch(`https://jsonplaceholder.typicode.com/posts/${data}`)
+        const responce = await fetch(`https://jsonplaceholder.typicode.com/posts/${+data}`)
         const post = await responce.json()
-        console.log('post :', post);
+        dispatch(getPostByIdAction(post));
     }
 )
 
