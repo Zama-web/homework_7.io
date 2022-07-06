@@ -13,6 +13,8 @@ function PostPage() {
         dispatch(getPost())
     }, [])
 
+
+    // 7 дз) создать GET запрос по одному посту и отобразить
     const getOnePost = (e) => {
         e.preventDefault()
         dispatch(getPostById(e.target.dataset.id))
@@ -49,6 +51,7 @@ function PostPage() {
                 </tbody>
             </Table>
 
+// 7 дз) создать GET запрос по одному посту и отобразить
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Содержимое поста №{post.id}</Modal.Title>
